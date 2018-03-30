@@ -1,3 +1,28 @@
+// Modal Sign Up Form and Validation
+const button = document.querySelector('#button');
+const modalContent = document.querySelector('.modal-container');
+
+
+button.onclick = function() {
+  console.log('hey');
+  modalContent.style.display = 'block';
+};
+
+// Email Validation 
+function emailValidate() {
+  const email = document.forms["email-form"]["email"].value.trim();
+
+  if (!email) {
+    alert('Please enter your email address');
+    return false;
+  }
+}
+
+// Code to send to server
+
+
+
+// jQuery Animations 
 window.sr = ScrollReveal({ reset: true });
 
 // Custom Settings
