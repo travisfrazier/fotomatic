@@ -239,10 +239,17 @@ header .mobile {
 
   #sign-up-cta .content {
     margin-top: 0;
+    display: flex;
+    width: 100%;
   }
 
   #sign-up-cta .email {
     display: none;
+  }
+
+  .header {
+    padding-top: 2rem;
+    margin: 0 auto;
   }
 
   #sign-up-cta h1 {
@@ -259,14 +266,12 @@ header .mobile {
     height: 20rem;
   }
 
-  .content {
-    display: flex;
-  }
   .header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   #sign-up-cta h1 {
@@ -562,10 +567,6 @@ footer .copyright {
   }
   header .mobile {
     max-width: 100%;
-  }
-
-  .header {
-    padding-top: 2rem;
   }
 
   .features-content {
