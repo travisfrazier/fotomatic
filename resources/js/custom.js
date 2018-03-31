@@ -1,9 +1,14 @@
 // Modal Sign Up Form and Validation
-const button = document.querySelector('#button');
+const buttonOne = document.querySelector('#button');
+const buttonTwo = document.querySelector('#buttonTwo');
 const modalContent = document.querySelector('.modal-container');
 
 
-button.onclick = function() {
+buttonOne.onclick = function() {
+  modalContent.style.display = 'block';
+};
+ 
+buttonTwo.onclick = function() {
   console.log('hey');
   modalContent.style.display = 'block';
 };
@@ -18,36 +23,58 @@ function emailValidate() {
   }
 }
 
-// Code to send to server
+// Image Slider begin
+let sliderImages = document.querySelectorAll('.sign-up-section');
+let arrowLeft = document.querySelector('#arrow-left');
+let arrowRight = document.querySelector('#arrow-right');
+// Represent what slide is displaying 
+let current = 0;
 
 
+//Sets all slides to display none
+function reset() {
+  for (let i = 0; i < sliderImages.length; i++) {
+    sliderImages[i].style.display = 'none';
+  }
+}
 
-// jQuery Animations 
-window.sr = ScrollReveal({ reset: true });
+// Starts slider
+function startSlide() {
+  reset();
+  sliderImages[0].style.display = 'block'; 
+}
 
-// Custom Settings
-sr.reveal('.foo-1', { duration: 900 });
+// Previous slide 
+function slideLeft() {
+  reset();
+  sliderImages[current - 1].style.display = 'block';
+  current--;
+}
 
-sr.reveal('.foo-2', { 
-  duration: 1200
+// Next slide 
+function slideRight() {
+  reset();
+  sliderImages[current + 1].style.display = 'block';
+  current++;
+}
+
+//Move left
+arrowLeft.addEventListener('click', function() {
+  if (current === 0) {
+    current = sliderImages.length;
+  }
+  slideLeft();
 });
 
-sr.reveal('.foo-3', { 
-  duration: 1500
+// Move right
+arrowRight.addEventListener('click', function() {
+  if (current === sliderImages.length - 1) {
+    current = -1;
+  }
+  slideRight();
 });
 
-sr.reveal('.foo-4', { 
-  duration: 1800,
-});
+startSlide();
 
-sr.reveal('.foo-5', { 
-  duration: 2100 
-});
+// End image slider 
 
-sr.reveal('.foo-6', { 
-    duration: 2400 
-});
-
-sr.reveal('.foo', {
-    duration: 1000
-});
